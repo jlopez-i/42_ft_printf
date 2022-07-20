@@ -6,7 +6,7 @@
 /*   By: jlopez-i <jlopez-i@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/18 20:41:39 by jlopez-i          #+#    #+#             */
-/*   Updated: 2022/07/20 20:20:32 by jlopez-i         ###   ########.fr       */
+/*   Updated: 2022/07/20 20:54:18 by jlopez-i         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 int	ft_putstr(char *str)
 {
 	int	i;
-
+	if (!str)
+		return(write(1, "(null)", 6));
 	i = 0;
 	while (str[i] != '\0')
 	{
