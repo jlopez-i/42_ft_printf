@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_dectohex.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jlopez-i <jlopez-i@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/20 19:26:19 by jlopez-i          #+#    #+#             */
-/*   Updated: 2022/07/21 19:26:15 by jlopez-i         ###   ########.fr       */
+/*   Created: 2022/07/21 17:14:42 by jlopez-i          #+#    #+#             */
+/*   Updated: 2022/07/21 19:16:58 by jlopez-i         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,34 +21,39 @@ static int	ft_countdigit(long int n)
 		count++;
 	while (n != 0)
 	{
-		n = n / 10;
+		n = n / 16;
 		count++;
 	}
 	return (count);
 }
 
-int	ft_putnbr(long int ln, char c)
+static int	ft_putchar_hex(int n, char x)
+{
+	char	c;
+
+	if (n < 10)
+		c = n + 48;
+	else if (x == 'x')
+		c = n + ('a' - 10);
+	else if (x == 'X')
+		c = n + ('A' - 10);
+	write(1, &c, 1);
+	return (1);
+}
+
+int	ft_dectohex(long int ln, char c)
 {
 	int	i;
 
 	i = 0;
 	if (ln < 0)
+		ln = UINT_MAX + ln + 1;
+	if (ln > 16)
 	{
-		if (c == 'd' || c == 'i')
-		{
-			ft_putchar('-');
-			ln = -ln;
-			i = 1;
-		}
-		else
-			ln = UINT_MAX + ln + 1;
-	}
-	if (ln > 10)
-	{
-		ft_putnbr(ln / 10, c);
-		ft_putnbr(ln % 10, c);
+		ft_dectohex(ln / 16, c);
+		ft_dectohex(ln % 16, c);
 	}
 	else
-		ft_putchar('0' + ln);
-	return (ft_countdigit(ln) + i);
+		ft_putchar_hex(ln, c);
+	return (ft_countdigit(ln));
 }

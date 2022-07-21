@@ -6,7 +6,7 @@
 #    By: jlopez-i <jlopez-i@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/20 20:26:54 by jlopez-i          #+#    #+#              #
-#    Updated: 2022/07/20 20:41:06 by jlopez-i         ###   ########.fr        #
+#    Updated: 2022/07/21 19:09:13 by jlopez-i         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,7 @@ SRCS	= ft_printf.c\
 	ft_putchar.c\
 	ft_putstr.c\
 	ft_putnbr.c\
+	ft_dectohex.c\
 
 OBJS	= $(SRCS:.c=.o)
 
