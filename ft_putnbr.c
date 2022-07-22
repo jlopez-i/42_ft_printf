@@ -6,13 +6,13 @@
 /*   By: jlopez-i <jlopez-i@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 19:26:19 by jlopez-i          #+#    #+#             */
-/*   Updated: 2022/07/21 19:26:15 by jlopez-i         ###   ########.fr       */
+/*   Updated: 2022/07/22 16:19:59 by jlopez-i         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-static int	ft_countdigit(long int n)
+static int	ft_countdigit(long long n)
 {
 	int	count;
 
@@ -27,7 +27,7 @@ static int	ft_countdigit(long int n)
 	return (count);
 }
 
-int	ft_putnbr(long int ln, char c)
+int	ft_putnbr(long long ln, char c)
 {
 	int	i;
 
@@ -43,7 +43,7 @@ int	ft_putnbr(long int ln, char c)
 		else
 			ln = UINT_MAX + ln + 1;
 	}
-	if (ln > 10)
+	if (ln >= 10)
 	{
 		ft_putnbr(ln / 10, c);
 		ft_putnbr(ln % 10, c);

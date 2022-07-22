@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_dectohex.c                                      :+:      :+:    :+:   */
+/*   ft_dectohexp.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jlopez-i <jlopez-i@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/21 17:14:42 by jlopez-i          #+#    #+#             */
-/*   Updated: 2022/07/22 20:48:36 by jlopez-i         ###   ########.fr       */
+/*   Created: 2022/07/22 19:52:49 by jlopez-i          #+#    #+#             */
+/*   Updated: 2022/07/22 20:50:55 by jlopez-i         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-static int	ft_countdigit(long long n)
+static int	ft_countdigit(unsigned long long n)
 {
 	int	count;
 
@@ -27,7 +27,7 @@ static int	ft_countdigit(long long n)
 	return (count);
 }
 
-static int	ft_putchar_hex(long long n, char x)
+static int	ft_putchar_hex(unsigned long long n, char x)
 {
 	char	c;
 
@@ -41,13 +41,13 @@ static int	ft_putchar_hex(long long n, char x)
 	return (1);
 }
 
-int	ft_dectohex(long long ln, char c)
+static int	ft_dectohex1(unsigned long long ln, char c)
 {
 	int	i;
 
 	i = 0;
 	if (ln < 0)
-		ln = UINT_MAX + ln + 1;
+		ln = ULONG_MAX + ln + 1;
 	if (ln > 16)
 	{
 		ft_dectohex(ln / 16, c);
@@ -56,4 +56,12 @@ int	ft_dectohex(long long ln, char c)
 	else
 		ft_putchar_hex(ln, c);
 	return (ft_countdigit(ln));
+}
+
+int	ft_dectohexp(void *p, char c)
+{
+	if (!p)
+		return (ft_putstr("0x0"));
+	write(1, "0x", 2);
+	return (ft_dectohex1(((unsigned long long)p), c) + 2);
 }

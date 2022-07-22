@@ -6,7 +6,7 @@
 /*   By: jlopez-i <jlopez-i@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 20:18:43 by jlopez-i          #+#    #+#             */
-/*   Updated: 2022/07/21 19:07:26 by jlopez-i         ###   ########.fr       */
+/*   Updated: 2022/07/22 20:35:09 by jlopez-i         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@
 int			ft_format(va_list args, char c);
 int			ft_putchar(char c);
 int			ft_putstr(char *s);
-int			ft_putnbr(long int ln, char c);
-int			ft_dectohex(long int ln, char c);
+int			ft_putnbr(long long ln, char c);
+int			ft_dectohex(long long ln, char c);
+int			ft_dectohexp(void *p, char c);
 
 #endif

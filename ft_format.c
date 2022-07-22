@@ -6,7 +6,7 @@
 /*   By: jlopez-i <jlopez-i@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 20:06:09 by jlopez-i          #+#    #+#             */
-/*   Updated: 2022/07/21 19:19:10 by jlopez-i         ###   ########.fr       */
+/*   Updated: 2022/07/22 20:35:15 by jlopez-i         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	ft_format(va_list args, char c)
 	if (c == 's')
 		return (ft_putstr(va_arg(args, char *)));
 	if (c == 'p')
-		return ((va_arg(args, unsigned long)));
+		return (ft_dectohexp(va_arg(args, void *), c));
 	if (c == 'd')
 		return (ft_putnbr(va_arg(args, int), c));
 	if (c == 'i')
