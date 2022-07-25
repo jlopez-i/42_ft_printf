@@ -6,7 +6,7 @@
 /*   By: jlopez-i <jlopez-i@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 19:52:49 by jlopez-i          #+#    #+#             */
-/*   Updated: 2022/07/22 20:50:55 by jlopez-i         ###   ########.fr       */
+/*   Updated: 2022/07/25 17:51:52 by jlopez-i         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,41 +27,38 @@ static int	ft_countdigit(unsigned long long n)
 	return (count);
 }
 
-static int	ft_putchar_hex(unsigned long long n, char x)
+static int	ft_putchar_hex(unsigned long long n)
 {
 	char	c;
 
 	if (n < 10)
 		c = n + '0';
-	else if (x == 'x')
+	else
 		c = n + ('a' - 10);
-	else if (x == 'X')
-		c = n + ('A' - 10);
-	write(1, &c, 1);
+	if (write(1, &c, 1) == -1)
+		return (-1);
 	return (1);
 }
 
-static int	ft_dectohex1(unsigned long long ln, char c)
+static int	ft_dectohex1(unsigned long long ln)
 {
-	int	i;
-
-	i = 0;
-	if (ln < 0)
-		ln = ULONG_MAX + ln + 1;
-	if (ln > 16)
+	if (ln >= 16)
 	{
-		ft_dectohex(ln / 16, c);
-		ft_dectohex(ln % 16, c);
+		if (ft_dectohex1(ln / 16) == -1)
+			return (-1);
+		ft_dectohex1(ln % 16);
 	}
 	else
-		ft_putchar_hex(ln, c);
+		if (ft_putchar_hex(ln) == -1)
+			return (-1);
 	return (ft_countdigit(ln));
 }
 
-int	ft_dectohexp(void *p, char c)
+int	ft_dectohexp(void *p)
 {
 	if (!p)
 		return (ft_putstr("0x0"));
-	write(1, "0x", 2);
-	return (ft_dectohex1(((unsigned long long)p), c) + 2);
+	if (write(1, "0x", 2) == -1)
+		return (-1);
+	return (ft_dectohex1((unsigned long long)p) + 2);
 }

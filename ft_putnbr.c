@@ -6,7 +6,7 @@
 /*   By: jlopez-i <jlopez-i@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 19:26:19 by jlopez-i          #+#    #+#             */
-/*   Updated: 2022/07/22 16:19:59 by jlopez-i         ###   ########.fr       */
+/*   Updated: 2022/07/25 17:26:04 by jlopez-i         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,8 @@ int	ft_putnbr(long long ln, char c)
 	{
 		if (c == 'd' || c == 'i')
 		{
-			ft_putchar('-');
+			if (ft_putchar('-') == -1)
+				return (-1);
 			ln = -ln;
 			i = 1;
 		}
@@ -45,10 +46,12 @@ int	ft_putnbr(long long ln, char c)
 	}
 	if (ln >= 10)
 	{
-		ft_putnbr(ln / 10, c);
+		if ((ft_putnbr(ln / 10, c) == -1))
+			return (-1);
 		ft_putnbr(ln % 10, c);
 	}
 	else
-		ft_putchar('0' + ln);
+		if ((ft_putchar('0' + ln) == -1))
+			return (-1);
 	return (ft_countdigit(ln) + i);
 }

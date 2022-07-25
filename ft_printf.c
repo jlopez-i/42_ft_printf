@@ -6,7 +6,7 @@
 /*   By: jlopez-i <jlopez-i@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 17:37:32 by jlopez-i          #+#    #+#             */
-/*   Updated: 2022/07/22 20:51:25 by jlopez-i         ###   ########.fr       */
+/*   Updated: 2022/07/25 17:25:12 by jlopez-i         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,26 +16,31 @@ int	ft_printf(const char *fmt, ...)
 {
 	va_list	args;
 	int		i;
-	int		count;
+	ssize_t	count;
 
 	va_start(args, fmt);
-	i = 0;
+	i = -1;
 	count = 0;
-	while (fmt[i] != '\0')
+	while (fmt[++i] != '\0')
 	{
 		if (fmt[i] == '%')
 		{
 			i++;
 			count += ft_format(args, fmt[i]);
+			if (count == -1)
+				return (-1);
 		}
 		else
+		{
 			count += ft_putchar(fmt[i]);
-		i++;
+			if (count == -1)
+				return (-1);
+		}
 	}
 	va_end(args);
 	return (count);
 }
-
+/*
 int main()
 {
 	char c ='a';
@@ -68,3 +73,4 @@ int main()
 	c,s,d,u,i,x1,X1,x2,X2,ptr));
 	return (0);
 }
+*/

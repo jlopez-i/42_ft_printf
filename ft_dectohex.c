@@ -6,7 +6,7 @@
 /*   By: jlopez-i <jlopez-i@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 17:14:42 by jlopez-i          #+#    #+#             */
-/*   Updated: 2022/07/22 20:48:36 by jlopez-i         ###   ########.fr       */
+/*   Updated: 2022/07/25 17:26:38 by jlopez-i         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,8 @@ static int	ft_putchar_hex(long long n, char x)
 		c = n + ('a' - 10);
 	else if (x == 'X')
 		c = n + ('A' - 10);
-	write(1, &c, 1);
+	if (write(1, &c, 1) == -1)
+		return (-1);
 	return (1);
 }
 
@@ -50,10 +51,12 @@ int	ft_dectohex(long long ln, char c)
 		ln = UINT_MAX + ln + 1;
 	if (ln > 16)
 	{
-		ft_dectohex(ln / 16, c);
+		if (ft_dectohex(ln / 16, c) == -1)
+			return (-1);
 		ft_dectohex(ln % 16, c);
 	}
 	else
-		ft_putchar_hex(ln, c);
+		if (ft_putchar_hex(ln, c) == -1)
+			return (-1);
 	return (ft_countdigit(ln));
 }
