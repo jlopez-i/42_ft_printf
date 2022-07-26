@@ -6,7 +6,7 @@
 #    By: jlopez-i <jlopez-i@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/20 20:26:54 by jlopez-i          #+#    #+#              #
-#    Updated: 2022/07/25 17:53:40 by jlopez-i         ###   ########.fr        #
+#    Updated: 2022/07/26 15:35:45 by jlopez-i         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME	= libftprintf.a
 C_FLAGS	= -Wall -Werror -Wextra
 CC 		= cc
 RM		= rm -f
-HEAD	= libftprintf.h
+HEAD	= ft_printf.h
 
 SRCS	= ft_printf.c\
 	ft_format.c\
@@ -44,4 +44,4 @@ clean:
 re: fclean
 	$(MAKE) all
 
-.PHONY: all fclean fclean re 
+.PHONY: all fclean clean re

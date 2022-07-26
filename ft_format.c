@@ -6,11 +6,11 @@
 /*   By: jlopez-i <jlopez-i@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 20:06:09 by jlopez-i          #+#    #+#             */
-/*   Updated: 2022/07/25 17:25:25 by jlopez-i         ###   ########.fr       */
+/*   Updated: 2022/07/26 15:30:53 by jlopez-i         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 int	ft_format(va_list args, char c)
 {

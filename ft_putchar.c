@@ -6,11 +6,11 @@
 /*   By: jlopez-i <jlopez-i@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 16:36:00 by jlopez-i          #+#    #+#             */
-/*   Updated: 2022/07/25 17:25:33 by jlopez-i         ###   ########.fr       */
+/*   Updated: 2022/07/26 15:31:50 by jlopez-i         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 int	ft_putchar(char c)
 {

@@ -6,11 +6,11 @@
 /*   By: jlopez-i <jlopez-i@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 19:52:49 by jlopez-i          #+#    #+#             */
-/*   Updated: 2022/07/25 17:51:52 by jlopez-i         ###   ########.fr       */
+/*   Updated: 2022/07/26 15:30:09 by jlopez-i         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 static int	ft_countdigit(unsigned long long n)
 {

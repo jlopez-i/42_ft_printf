@@ -6,11 +6,11 @@
 /*   By: jlopez-i <jlopez-i@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 17:14:42 by jlopez-i          #+#    #+#             */
-/*   Updated: 2022/07/25 17:26:38 by jlopez-i         ###   ########.fr       */
+/*   Updated: 2022/07/26 15:34:55 by jlopez-i         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 static int	ft_countdigit(long long n)
 {
@@ -49,7 +49,7 @@ int	ft_dectohex(long long ln, char c)
 	i = 0;
 	if (ln < 0)
 		ln = UINT_MAX + ln + 1;
-	if (ln > 16)
+	if (ln >= 16)
 	{
 		if (ft_dectohex(ln / 16, c) == -1)
 			return (-1);

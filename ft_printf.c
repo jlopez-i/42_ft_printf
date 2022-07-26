@@ -6,11 +6,11 @@
 /*   By: jlopez-i <jlopez-i@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 17:37:32 by jlopez-i          #+#    #+#             */
-/*   Updated: 2022/07/25 17:25:12 by jlopez-i         ###   ########.fr       */
+/*   Updated: 2022/07/26 15:31:31 by jlopez-i         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 int	ft_printf(const char *fmt, ...)
 {
